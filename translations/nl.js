@@ -1,130 +1,130 @@
-var en = {
+var nl = {
 
-"playerHeading": "Media player",
+"playerHeading": "Mediaspeler",
 
-"faster": "Faster",
+"faster": "Sneller",
 
-"slower": "Slower",
+"slower": "Langzamer",
 
-"play": "Play",
+"play": "Afspelen",
 
-"pause": "Pause",
+"pause": "Pauzeren",
 
-"stop": "Stop",
+"stop": "Stoppen",
 
-"restart": "Restart",
+"restart": "Herstarten",
 
-"prevChapter": "Previous chapter",
+"prevChapter": "Vorige Hoofdstuk",
 
-"nextChapter": "Next chapter",
+"nextChapter": "Volgend Hoofdstuk",
 
-"prevTrack": "Previous track",
+"prevTrack": "Vorige Track",
 
-"nextTrack": "Next track",
+"nextTrack": "Volgend track",
 
-"rewind": "Rewind",
+"rewind": "Terug",
 
-"forward": "Forward",
+"forward": "Verder",
 
-"captions": "Captions",
+"captions": "Ondertiteling",
 
-"showCaptions": "Show captions",
+"showCaptions": "Toon ondertiteling",
 
-"hideCaptions": "Hide captions",
+"hideCaptions": "Verberg ondertiteling",
 
-"captionsOff": "Captions off",
+"captionsOff": "Ondertiteling uit",
 
-"showTranscript": "Show transcript",
+"showTranscript": "Toon transcript",
 
-"hideTranscript": "Hide transcript",
+"hideTranscript": "Vergerg transcript",
 
-"turnOnDescriptions": "Turn on descriptions",
+"turnOnDescriptions": "Beschrijvingen aanzetten",
 
-"turnOffDescriptions": "Turn off descriptions",
+"turnOffDescriptions": "Beschrijvingen uitzetten",
 
-"chapters": "Chapters",
+"chapters": "Hoofdstukken",
 
-"newChapter": "New chapter",
+"newChapter": "Nieuw hoofdstuk",
 
-"language": "Language",
+"language": "Taal",
 
-"sign": "Sign language",
+"sign": "Gebarentaal",
 
-"showSign": "Show sign language",
-
-"hideSign": "Hide sign language",
+"showSign": "Toon gebarentaal",
 
 "seekbarLabel": "timeline",
 
-"mute": "Mute",
+"hideSign": "Verberg gebarentaal",
 
-"unmute": "Unmute",
+"mute": "Dempen",
+
+"unmute": "Dempen uit",
 
 "volume": "Volume",
 
 "volumeHelp": "Click to access volume slider",
 
-"volumeUpDown": "Volume up down",
+"volumeUpDown": "Volume hoger lager",
 
 "volumeSliderClosed": "Volume slider closed",
 
-"preferences": "Preferences",
+"preferences": "Voorkeuren",
 
-"enterFullScreen": "Enter full screen",
+"enterFullScreen": "Ga naar volledig scherm",
 
-"exitFullScreen": "Exit full screen",
+"exitFullScreen": "Verlaat volledig scherm",
 
-"fullScreen": "Full screen",
+"fullScreen": "Volledig scherm",
 
-"speed": "Speed",
+"speed": "Snelheid",
 
-"and": "and",
+"and": "en",
 
-"or": "or",
+"or": "of",
 
-"spacebar": "spacebar",
+"spacebar": "spatietoets",
 
 "transcriptTitle": "Transcript",
 
-"lyricsTitle": "Lyrics",
+"lyricsTitle": "Tekst",
 
 "autoScroll": "Auto scroll",
 
-"unknown": "Unknown",
+"unknown": "Onbekend",
 
-"statusPlaying": "Playing",
+"statusPlaying": "Aan het spelen",
 
-"statusPaused": "Paused",
+"statusPaused": "Gepauzeerd",
 
-"statusStopped": "Stopped",
+"statusStopped": "Gestopt",
 
-"statusWaiting": "Waiting",
+"statusWaiting": "Aan het wachten",
 
-"statusBuffering": "Buffering",
+"statusBuffering": "Aan het bufferen",
 
-"statusUsingDesc": "Using described version",
+"statusUsingDesc": "Versie met beschrijving wordt gebruikt",
 
-"statusLoadingDesc": "Loading described version",
+"statusLoadingDesc": "Versie met beschrijving wordt geladen",
 
-"statusUsingNoDesc": "Using non-described version",
+"statusUsingNoDesc": "Versie zonder beschrijving wordt gebruikt",
 
-"statusLoadingNoDesc": "Loading non-described version",
+"statusLoadingNoDesc": "Versie zonder beschrijving wordt geladen",
 
-"statusLoadingNext": "Loading next track",
+"statusLoadingNext": "Volgende track wordt geladen",
 
-"statusEnd": "End of track",
+"statusEnd": "Einde van track",
 
-"selectedTrack": "Selected Track",
+"selectedTrack": "Geselecteerde Track",
 
-"alertDescribedVersion": "Using the audio described version of this video",
+"alertDescribedVersion": "Versie met audiobeschrijving wordt gebruikt",
 
 "alertNonDescribedVersion": "Using the non-described version of this video",
 
-"fallbackError1": "Sorry, your browser is unable to play this",
+"fallbackError1": "Sorry, je browser kan dit mediabestand niet afspelen",
 
-"fallbackError2": "The following browsers are known to work with this media player",
+"fallbackError2": "De volgende browsers kunnen met deze mediaspeler overweg:",
 
-"orHigher": "or higher",
+"orHigher": "of hoger",
 
 "prefMenuCaptions": "Captions",
 
@@ -168,11 +168,11 @@ var en = {
 
 "prefHeadingKeyboard2": "Current keyboard shortcuts",
 
-"prefHeadingDescription": "Audio description",
+"prefHeadingDescription": "Audiobeschrijving",
 
-"prefHeadingTextDescription": "Text-based audio description",
+"prefHeadingTextDescription": "Tekst-gebaseerde audiobeschrijving",
 
-"prefHeadingCaptions": "Captions",
+"prefHeadingCaptions": "Ondertiteling",
 
 "prefHeadingTranscript": "Interactive Transcript",
 
@@ -198,13 +198,13 @@ var en = {
 
 "prefDescFormatOption2b": "text-based description",
 
-"prefDescPause": "Automatically pause video when description starts",
+"prefDescPause": "Pauzeer video automatisch als beschrijving aan wordt gezet",
 
-"prefVisibleDesc": "Make description visible",
+"prefVisibleDesc": "Als er een tekst-gebaseerde beschrijving is, maak deze dan zichtbaar",
 
-"prefHighlight": "Highlight transcript as media plays",
+"prefHighlight": "Transcript highlighten terwijl media speelt",
 
-"prefTabbable": "Keyboard-enable transcript",
+"prefTabbable": "Maak transcript bedienbaar met toetsenbord",
 
 "prefCaptionsFont": "Font",
 
@@ -260,46 +260,46 @@ var en = {
 
 "sampleCaptionText": "Sample caption text",
 
-"prefSuccess": "Your changes have been saved.",
+"prefSuccess": "Je wijzigingen zijn opgeslagen.",
 
-"prefNoChange": "You didn't make any changes.",
+"prefNoChange": "Je hebt geen wijzigingen gemaakt.",
 
 "help": "Help",
 
 "helpTitle": "Help",
 
-"save": "Save",
+"save": "Opslaan",
 
-"cancel": "Cancel",
+"cancel": "Annuleren",
 
 "ok": "ok",
 
-"done": "Done",
+"done": "Klaar",
 
-"closeButtonLabel": "Close dialog",
+"closeButtonLabel": "Sluit venster",
 
-"windowButtonLabel": "Window options",
+"windowButtonLabel": "Venster instellingen",
 
-"windowMove": "Move",
+"windowMove": "Verplaats",
 
-"windowMoveAlert": "Drag or use arrow keys to move the window; Enter to stop",
+"windowMoveAlert": "Versleep of gebruik de pijltjestoetsen om te verplaatsen. Druk op Enter om te stoppen.",
 
-"windowResize": "Resize",
+"windowResize": "Verkleinen of vergroten",
 
-"windowResizeHeading": "Resize Window",
+"windowResizeHeading": "Verander grootte van scherm met gebarentolk",
 
-"windowResizeAlert": "The window has been resized.",
+"windowResizeAlert": "Het venster is van grootte veranderd.",
 
-"width": "Width",
+"width": "Breedte",
 
-"height": "Height",
+"height": "Hoogte",
 
-"windowSendBack": "Send to back",
+"windowSendBack": "Verplaats naar achteren",
 
-"windowSendBackAlert": "This window is now behind other objects on the page.",
+"windowSendBackAlert": "Het scherm staat nu achter andere objecten op deze pagina.",
 
-"windowBringTop": "Bring to front",
+"windowBringTop": "Verplaats naar voren",
 
-"windowBringTopAlert": "This window is now in front of other objects on the page."
+"windowBringTopAlert": "Het scherm staat nu voor andere objecten op deze pagina."
 
 };
