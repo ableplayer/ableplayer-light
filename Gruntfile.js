@@ -1,5 +1,10 @@
 module.exports = function(grunt) {
 
+    var packageName = "<%= pkg.name %>";
+    if (grunt.option('packagename') && grunt.option('packagename').length) {
+        packageName = grunt.option('packagename');
+    }
+
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -10,6 +15,7 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        packageName: packageName,
         concat: {
             build: {
                 src: [
@@ -44,15 +50,15 @@ module.exports = function(grunt) {
                     'scripts/JQuery.doWhen.js',
                     'scripts/vts.js'
                 ],
-                dest: 'build/<%= pkg.name %>.js'
+                dest: 'build/<%= packageName %>.js'
             },
         },
         removelogging: {
             dist: {
                 src: [
-                    'build/<%= pkg.name %>.js'
+                    'build/<%= packageName %>.js'
                 ],
-                dest: 'build/<%= pkg.name %>.dist.js'
+                dest: 'build/<%= packageName %>.dist.js'
             },
             options: {
                 // Remove all console output (see https://www.npmjs.com/package/grunt-remove-logging)
@@ -60,13 +66,13 @@ module.exports = function(grunt) {
         },
         uglify: {
             min: {
-                src    : ['build/<%= pkg.name %>.dist.js'],
-                dest   : 'build/<%= pkg.name %>.min.js',
+                src    : ['build/<%= packageName %>.dist.js'],
+                dest   : 'build/<%= packageName %>.min.js',
             },
             options: {
                 // Add a banner with the package name and version
                 //  (no date, otherwise a new build is different even if the code didn't change!)
-                banner: '/*! <%= pkg.name %> V<%= pkg.version %> */\n',
+                banner: '/*! <%= packageName %> V<%= pkg.version %> */\n',
                 // Preserve comments that start with a bang (like the file header)
                 preserveComments: "some"
             }
@@ -76,13 +82,13 @@ module.exports = function(grunt) {
                 src  : [
                     'styles/ableplayer.css',
                 ],
-                dest : 'build/<%= pkg.name %>.min.css',
+                dest : 'build/<%= packageName %>.min.css',
             },
             options: {
                 // Add a banner with the package name and version
                 //  (no date, otherwise a new build is different even if the code didn't change!)
                 //  (oddly, here we don't need a '\n' at the end!)
-                banner: '/*! <%= pkg.name %> V<%= pkg.version %> */',
+                banner: '/*! <%= packageName %> V<%= pkg.version %> */',
             }
         },
         jshint: {
