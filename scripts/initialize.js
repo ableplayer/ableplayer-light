@@ -11,6 +11,7 @@
 		this.initializing = false; // will change to true temporarily while initPlayer() is processing
 		this.cueingPlaylistItems = false; // will change to true temporarily while cueing next playlist item
 		this.okToPlay = false; // will change to true if conditions are acceptible for automatic playback after media loads
+		this.buttonWithFocus = null; // will change to 'previous' or 'next' if user clicks either of those buttons
 
 		this.getUserAgent();
 		this.setIconColor();
@@ -221,6 +222,7 @@
 				break;
 
 			case 'mute':
+			case 'volume-mute':
 				svg[0] = '0 0 20 20';
 				svg[1] = 'M7.839 1.536c0.501-0.501 0.911-0.331 0.911 0.378v16.172c0 0.709-0.41 0.879-0.911 0.378l-4.714-4.713h-3.125v-7.5h3.125l4.714-4.714zM18.75 12.093v1.657h-1.657l-2.093-2.093-2.093 2.093h-1.657v-1.657l2.093-2.093-2.093-2.093v-1.657h1.657l2.093 2.093 2.093-2.093h1.657v1.657l-2.093 2.093z';
 				break;
@@ -561,9 +563,7 @@
 
 		this.initSignLanguage();
 
-// 	thisObj.initializing = true;
-		this.initPlayer().then(function() { // initPlayer success
-//		thisObj.initializing = false;
+		this.initPlayer().then(function() {
 
 			 thisObj.setupTracks().then(function() {
 
@@ -571,11 +571,12 @@
 
 					thisObj.setupTranscript().then(function() {
 
-						if (thisObj.Volume) {
-								thisObj.setMute(false);
-							}
 						thisObj.setFullscreen(false);
-						thisObj.setVolume(thisObj.defaultVolume);
+
+						if (typeof thisObj.volume === 'undefined') {
+  						thisObj.volume = thisObj.defaultVolume;
+						}
+						thisObj.setVolume(thisObj.volume);
 
 						if (thisObj.transcriptType) {
 							thisObj.addTranscriptAreaEvents();
@@ -635,7 +636,6 @@
 
 		var thisObj = this;
 		var playerPromise;
-
 		// First run player specific initialization.
 		if (this.player === 'html5') {
 			playerPromise = this.initHtml5Player();
@@ -646,7 +646,6 @@
 		else if (this.player === 'vimeo') {
 			playerPromise = this.initVimeoPlayer();
 		}
-
 		// After player specific initialization is done, run remaining general initialization.
 		var deferred = new $.Deferred();
 		var promise = deferred.promise();
@@ -711,7 +710,6 @@
 		var captions, i;
 
 		captions = this.captions;
-
 		if (captions.length > 0) {
 			for (i=0; i<captions.length; i++) {
 				if (captions[i].def === true) {
@@ -743,7 +741,40 @@
 				// sync all other tracks to this same languge
 				this.syncTrackLanguages('init',this.captionLang);
 			}
-		}
+      if (this.player === 'vimeo') {
+  			if (this.usingVimeoCaptions && this.prefCaptions == 1) {
+      			// initialize Vimeo captions to the default language
+            this.vimeoPlayer.enableTextTrack(this.captionLang).then(function(track) {
+	  				  // track.language = the iso code for the language
+              // track.kind = 'captions' or 'subtitles'
+              // track.label = the human-readable label
+				    }).catch(function(error) {
+					    switch (error.name) {
+						    case 'InvalidTrackLanguageError':
+							    // no track was available with the specified language
+                  console.log('No ' + track.kind + ' track is available in the specified language (' + track.label + ')');
+                  break;
+                case 'InvalidTrackError':
+							    // no track was available with the specified language and kind
+                  console.log('No ' + track.kind + ' track is available in the specified language (' + track.label + ')');
+                  break;
+                default:
+							    // some other error occurred
+                  console.log('Error loading ' + track.label + ' ' + track.kind + ' track');
+                  break;
+    		      }
+				    });
+			    }
+          else {
+  			    // disable Vimeo captions.
+            this.vimeoPlayer.disableTextTrack().then(function() {
+    			    // Vimeo captions disabled
+  			    }).catch(function(error) {
+              console.log('Error disabling Vimeo text track: ',error);
+            });
+			    }
+        }
+    }
 	};
 
 	AblePlayer.prototype.initHtml5Player = function () {
